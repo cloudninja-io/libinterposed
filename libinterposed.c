@@ -67,7 +67,7 @@ int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen) {
     }
 
     getsockname(sockfd, (struct sockaddr*) &actual, &actual_len);
-    msg_length = sprintf(msg, "port=%d\n", htons(actual.sin_port));
+    msg_length = sprintf(msg, "%d\n", htons(actual.sin_port));
     write(__interposed_ipc, msg, msg_length);
     return result;
   }
@@ -118,7 +118,7 @@ int _so_bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen, int ver
     }
 
     getsockname(sockfd, (struct sockaddr*) &actual, &actual_len);
-    msg_length = sprintf(msg, "port=%d\n", htons(actual.sin_port));
+    msg_length = sprintf(msg, "%d\n", htons(actual.sin_port));
     write(__interposed_ipc, msg, msg_length);
     return result;
   }
