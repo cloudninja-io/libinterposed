@@ -1,5 +1,3 @@
-include config.mk
-
 all: libinterposed.so
 
 libinterposed.so: libinterposed.c
