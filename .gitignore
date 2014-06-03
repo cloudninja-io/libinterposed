@@ -1,4 +1,3 @@
 *.so
 *.o
-*.sw[op]
 config.mk
