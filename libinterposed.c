@@ -13,9 +13,14 @@ int __interposed_ipc = 3;
 
 static void __interposed_init() __attribute__((constructor));
 
-#pragma CALL_ON_MODULE_BIND __interposed_init
+// OS X
 #pragma CALL_ON_LOAD __interposed_init
+// OS X (deprecated)
+#pragma CALL_ON_MODULE_BIND __interposed_init
+
+// Solaris
 #pragma init(__interposed_init)
+
 void __interposed_init() {
   unsetenv("LD_PRELOAD");
 }
